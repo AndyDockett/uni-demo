@@ -60,7 +60,7 @@ import { CosmicService} from './services/cosmic.service'
          
           
           {
-            path: 'singlepost',
+            path: 'monkey/singlepost',
             component: SinglepostComponent
           },
           
