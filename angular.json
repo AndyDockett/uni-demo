@@ -16,10 +16,12 @@
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
             "assets": [
+              "src/_redirects",
               {
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "/assets"
+                
               },
               {
                 "glob": "favicon.ico",
