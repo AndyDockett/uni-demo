@@ -9,16 +9,10 @@ import { CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-lazy-view',
-  template: `
 
-  
-  
-    <h3 *ngFor="let blog of allBlogs">{{blog.title}}</h3>
-    <div>Check your Networks tab to see that the js file got loaded</div>
-    <br>
-    <div><em>/lazy/nested/</em> routes to the same page</div>
-    
-  `
+  templateUrl: './lazy.component.html',
+  styleUrls: ['./lazy.component.scss']
+ 
 })
 export class LazyComponent implements OnInit {
 
