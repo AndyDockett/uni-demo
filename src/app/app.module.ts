@@ -70,7 +70,7 @@ import { CosmicService} from './services/cosmic.service'
 
 
 
-    ]),
+    ], { initialNavigation: 'enabled' }),
     TransferHttpCacheModule,
     FormsModule,
     ReactiveFormsModule,
