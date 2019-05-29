@@ -54,8 +54,7 @@ import { CosmicService} from './services/cosmic.service'
       
        
           {
-            path: 'monkey',
-            component: AllblogsComponent
+            path: 'monkey', component: AllblogsComponent, pathMatch: 'full'
           },
           
          
