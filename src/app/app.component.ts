@@ -1,4 +1,8 @@
-import {Component} from '@angular/core';
+
+import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import { Router } from '@angular/router';
+import { CosmicService } from './services/cosmic.service'
 
 @Component({
   selector: 'app-root',
@@ -9,6 +13,8 @@ import {Component} from '@angular/core';
       <a routerLink="/">Home</a>
       <a routerLink="/lazy">Lazy-loaded Route</a>
       <a routerLink="/lazy/nested">Nested Routes work too</a>
+      <a *ngFor="let data of allBlogs;  let i = index" routerLink="data.title">{{data.title}}</a>
+
     </nav>
     <div class="router-container">
       <router-outlet></router-outlet>
@@ -40,5 +46,26 @@ import {Component} from '@angular/core';
   `]
 })
 export class AppComponent {
+
+  data;
+  allBlogs;
+
+
+  constructor(private _http: Http, private route: Router, private cosmicService: CosmicService) { }
+
+  ngOnInit() {
+
+    this.showAllBlogs()
+  }
+
+  showAllBlogs() {
+    this.cosmicService.showAllBlogs()
+   .subscribe(res => {
+        this.data = res;
+        var jsondata = JSON.parse(this.data._body);
+        this.allBlogs = jsondata.objects;
+        console.log(this.allBlogs);
+      })
+  }
 
 }
