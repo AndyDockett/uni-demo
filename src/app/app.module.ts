@@ -1,6 +1,6 @@
 
 
-import { AllblogsComponent } from './components/allblogs/allblogs.component';
+import { AllblogsComponent  } from './components/allblogs/allblogs.component';
 
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
