@@ -1,9 +1,14 @@
 
 
+//nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    //border-bottom: 1px solid rgb(100, 100, 100);
+    //border-image-source: url(assets/dots.svg);
+    //border-image-slice: 60 0;
+    //border-image-repeat: round;
+    //background-color: white!important;
+//}
+
 nav.navbar.navbar-expand-lg.navbar-light.bg-light {
-    border-bottom: 1px solid black;
-    border-image-source: url(assets/dots.svg);
-    border-image-slice: 60 0;
-    border-image-repeat: round;
+    border-bottom: 1px solid #ececec;
     background-color: white!important;
 }
