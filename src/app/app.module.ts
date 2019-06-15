@@ -10,8 +10,8 @@ import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {TransferHttpCacheModule} from '@nguniversal/common';
 
-
-
+import { TooltipModule } from 'ngx-bootstrap';
+import {Howl, Howler} from 'howler';
 
 
 
@@ -45,6 +45,8 @@ import { CosmicService} from './services/cosmic.service'
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app'}),
+
+    TooltipModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full'},
       { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule'},
@@ -61,6 +63,15 @@ import { CosmicService} from './services/cosmic.service'
           
           {
             path: 'monkey/singlepost',
+            component: SinglepostComponent
+          },
+          {
+            path: 'singlepost',
+            component: SinglepostComponent
+          },
+
+          {
+            path: 'lazy/singlepost',
             component: SinglepostComponent
           },
           

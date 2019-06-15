@@ -17,10 +17,7 @@ export class AppComponent {
 
   constructor(private _http: Http, private route: Router, private cosmicService: CosmicService) { }
 
-  ngOnInit() {
-
-    this.showAllBlogs()
-  }
+ 
 
   showAllBlogs() {
     this.cosmicService.showAllBlogs()

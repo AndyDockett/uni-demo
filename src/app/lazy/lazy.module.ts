@@ -37,7 +37,7 @@ showAllBlogs() {
 
 ngOnInit() {
 
-  this.showAllBlogs()
+ 
 }
 
 }

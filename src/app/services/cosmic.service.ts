@@ -5,6 +5,8 @@ import {config} from '../../config/cosmo.config'
 import {blogModel} from '../models/cosmic.model';
 import {registerModel} from '../models/cosmic.model';
 
+import { Cacheable } from 'ngx-cacheable';
+
 
 @Injectable()
 
@@ -106,6 +108,8 @@ export class CosmicService {
 
 //showing all blogs
 
+
+@Cacheable()
 showAllBlogs()
 {
     return this._http.get(this.URL+this.bucket_slug+"/object-type/blogs", {
@@ -118,6 +122,7 @@ showAllBlogs()
     .map(res => {
         return res;
       })
+
 }
 
  //show blogs of logged in user
@@ -137,6 +142,7 @@ showBlogs()
 }
 
 /**  showing single post on dashboard */
+@Cacheable()
 showSinglePostDashboard()
 {
    return this._http.get(this.URL+this.bucket_slug+"/object-type/blogs/", {
@@ -151,6 +157,7 @@ showSinglePostDashboard()
 }
 
 /**  showing single post on home page */
+@Cacheable()
 singlePostHome()
 {
     return this._http.get(this.URL+this.bucket_slug+"/object-type/blogs/", {

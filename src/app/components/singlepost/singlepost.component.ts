@@ -5,12 +5,18 @@ import {blogModel} from '../../models/cosmic.model';
 import { CosmicService } from '../../services/cosmic.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
+import {Howl, Howler} from 'howler';
+
+
+
+const {Howl, Howler} = require('howler');
 @Component({
   selector: 'app-singlepost',
   templateUrl: './singlepost.component.html',
   styleUrls: ['./singlepost.component.css']
 })
 export class SinglepostComponent implements OnInit {
+  
   data: any;
   allPosts: any;
   singlePost: any;
@@ -18,6 +24,14 @@ export class SinglepostComponent implements OnInit {
   slug: any;
   commentForm: FormGroup;
   message;
+  podcast_title;
+  podcastUrl;
+  sound;
+  playingnow = false;
+ 
+  playsrc = 'assets/play.svg'
+
+ 
   constructor(private router: ActivatedRoute, private route: Router, private _http: Http, private cosmicService: CosmicService,private fb: FormBuilder) 
   {
     this.commentForm = this.fb.group({
@@ -25,14 +39,26 @@ export class SinglepostComponent implements OnInit {
       'comment': ['', Validators.required],     
 
     });
+
+   
    }
 
   ngOnInit() {
 
     this.data = this.router.snapshot.queryParamMap;
     this.post();
+ 
+
+   
+
+    
+ 
+
+ 
   }
 
+
+ 
   /** to show single blog */
   post() {  
     var data = this.data.params.slug;
@@ -47,8 +73,13 @@ export class SinglepostComponent implements OnInit {
         this.singlePost = this.allPosts.filter(
           post => post.slug === data);
         var da = this.singlePost[0];
-        console.log(da)
-        })
+        this.podcastUrl = da.metadata.podcast_url.url;
+        console.log(da, da.metadata.podcast_url.url)
+        });
+      
+      
+
+        
 
   }
 
@@ -78,6 +109,62 @@ export class SinglepostComponent implements OnInit {
   {
     this.route.navigate(['']);
   }
+  
+clickedit()
+{
+
+  var sound = new Howl({
+    src: [this.podcastUrl],
+    preload: true,
+    html5: true,
+    
+  });
 
 
+    sound.play();
+ 
+
+
+}
+
+
+   
+
+   
+  
+playSound2(){
+
+  var sound = new Howl({
+    src: [this.podcastUrl],
+    preload: true,
+    html5: true,
+    
+  });
+this.sound = sound
+  this.playingnow = true;
+  
+
+  
+   
+sound.play();
+
+
+}
+
+pauseit(){
+
+
+  this.playingnow = false;
+
+
+this.sound.pause();
+
+
+}
+  
+ 
+
+ 
+
+  
 }

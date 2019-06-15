@@ -1,24 +1,50 @@
 
-<a class="right pointer login-btn" (click)="loginCall()">Login</a>
-<a class="left pointer back-btn" (click)="dashboardCall()">Back</a>
-<div class="blog">
-  
-  <div class="container">
-    
-<ul *ngFor="let data of singlePost">
-        <div class="blog-image">
-      <img src="{{data.metadata.blogImage}}" height=200px width=200px>
-    </div>
-    <h3>{{data.title}}</h3>
-    <p>Author: {{data.metadata.author}}</p>
 
+  
+  
+  <div class="container singlepost">
+
+
+
+    
+<div *ngFor="let data of singlePost">
+
+   <div *ngIf="data.metadata.podcast_title">
+      <div class="row">
+          <div class="col-4">
+              <img class="artwork" src="{{data.metadata.podcast_artwork.url}}" width="100%">
+           <div class="podcast_artwork"></div>
+          </div>
+          <div class="col-8 podcast-title">
+              <h1>{{data.title}}</h1>
+              <p class="episode">{{data.metadata.episode_title}}</p>
+             
+
+              <div class="playpause" *ngIf="!this.playingnow" > <img class='play' src="./assets/play.svg" (click)="playSound2()"></div>
+  <div class="playpause" *ngIf="this.playingnow" > <img class='play' src="./assets/pause.svg"  (click)="pauseit()"></div>
+             
+          </div>
+         
+        </div>
+
+     
+   </div> 
+
+   <h1 *ngIf="!data.metadata.podcast_title">{{data.title}}</h1>
+    <p class="postmeta"><span>By {{data.metadata.author}}</span><span class="bullet">&#8226;</span><span>{{data.metadata.date_published}}</span><span class="bullet">&#8226;</span><span>{{data.metadata.post_category}}</span><span class="bullet" >  <img src="assets/share.svg" tooltip="Share this article" ></span>  <span *ngIf="data.metadata.podcast_title">  <img width="14px"  tooltip="Subscribe to podcast" src="assets/rss.svg"></span> </p>
+   
     <div class="blog-content">
      <div [innerHTML]=data.content></div>
      </div>
-  </ul>
+  </div>
+
+ 
     
+  
 </div>
-</div>
+
+
+
 <!-- <div class="container">
     <form [formGroup]="commentForm" (ngSubmit)="comment()" novalidate>
       <div class="form-group">
@@ -32,7 +58,9 @@
     </div>
     
     </form>
-</div> -->
+</div> 
 
 
+<a class="right pointer login-btn" (click)="loginCall()">Login</a>
+<a class="left pointer back-btn" (click)="dashboardCall()">Back</a>-->
   
