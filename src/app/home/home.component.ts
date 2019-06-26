@@ -40,6 +40,17 @@ showAllBlogs() {
 ngOnInit() {
 
   this.showAllBlogs()
+
+//this.allBlogs = [{
+
+  //title: 'Test Page',
+  //type_slug: 'pages',
+
+   //   } ]
+
+    //  this.data = this.allBlogs
 }
+
+
 
 }

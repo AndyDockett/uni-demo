@@ -182,6 +182,8 @@ login(registerModel: registerModel)
   })
 }
 
+
+
 // saveComment(commentModel: commentModel )
 // {
 //   return this._http.post(this.URL+this.bucket_slug+"/add-object/", {
